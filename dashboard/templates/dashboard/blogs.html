@@ -1,0 +1,43 @@
+{% extends 'dashboard/base.html' %}
+{% block contacts %}
+<div class = "heading mt-3"><center><h1>Blogs</h1></center></div>
+<div class = "container mt-5">
+<table class="table table-bordered">
+    <thead class = "thead-dark">
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Author</th>
+      <th scope="col">Content</th>
+      <th scope="col">Created on</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      
+    </tr>
+   </thead>
+   <tbody>
+    {% for blog in Blogs %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{blog.title}}</td>
+      <td>{{blog.category}}</td>
+      <td>{{blog.author}}</td>
+      <td><a href = "{% url 'dashboard:blogcontent' blog.id %}">content</a></td>
+      <td>{{blog.created_on}}</td>
+      <td><a href="{% url 'dashboard:deleteblog' blog.id %}" class="delete"><i class="material-icons" style="color:red";>&#xe872</a></td> 
+      <td><a href="{% url 'dashboard:updateblogs' blog.id %}" class="delete"><i class="fa-solid fa-pen" styel="color:blue";></i></a></td>
+      
+    </tr>
+    {% empty %}
+    <p>No Blogs </p>
+    {% endfor %}
+   </tbody>
+    
+</table>
+<div class = "new">
+  <a class="nav-link" href="{% url 'dashboard:addblog'%}"><button style="background-color: aquamarine;">Add New Blog</button></span></a>
+</div>
+
+</div>
+{% endblock %}

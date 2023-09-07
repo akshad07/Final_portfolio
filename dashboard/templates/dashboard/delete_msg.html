@@ -1,0 +1,50 @@
+{% extends 'dashboard/base.html' %}
+{% block contacts %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Delete</title>
+   </head>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <body>
+      <form method="post">
+        {% csrf_token %}
+       <center> <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        margin-top: 10px;
+        margin-left: 50px;
+        height: 60px;
+        width: fit-content;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        background-color:grey;
+        border-radius: 30px;
+        text-align :center;
+        ">
+        Are you sure you want to delete {{object.name}}? "
+        </h3></center>
+       
+    <center><input type="submit" value="Delete" id = "submitForm"
+    style="background-color: red;
+    border-radius: 30px;
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    "
+    /></center>
+
+         
+      
+         
+      </form>
+     
+      <script>
+         $("#submitForm").click(function() {
+            alert("Deleted Successfuly.......");
+         });
+      </script>
+   </body>
+</html>
+{% endblock %}

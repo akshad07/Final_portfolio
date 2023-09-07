@@ -1,0 +1,31 @@
+{% extends 'dashboard/base.html' %}
+{% block contacts %}
+
+<div class="heading mt-3"><center><h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    margin-top: 10px;
+    margin-left: 50px;
+    height: 60px;
+    width: fit-content;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: rgb(238, 145, 135);
+    border-radius: 10px;
+    text-align: left;
+    ">
+     Blog Content
+    </h3></center>
+   
+  <div class="container mt-4" style="background-color: darkgray;
+    height: fit-content;
+    width: fit-content;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-left: 240px;">
+<p style="font-size: 20px;">{{ content.content }}</p>
+</div>
+
+{% endblock %}

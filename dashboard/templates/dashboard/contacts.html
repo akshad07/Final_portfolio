@@ -1,0 +1,35 @@
+{% extends 'dashboard/base.html' %}
+{% block contacts %}
+<div class = "heading mt-3"><center><h1>Messages Receieved</h1></center></div>
+<div class = "container mt-5">
+<table class="table table-bordered">
+    <thead class = "thead-dark">
+    <tr>
+      
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Delete</th>
+    </tr>
+   </thead>
+   <tbody>
+    {% for contact in contacts %}
+    <tr function()>
+      <td>{{forloop.counter}}</td>
+      <td>{{contact.name}}</td>
+      <td>{{contact.email}}</td>
+      <td><a href = "{% url 'dashboard:receivedmsg' contact.id %}">{{contact.subject}}</a></td>
+      <td><a href="{% url 'dashboard:deletemsg' contact.id %}" class="delete"><i class="material-icons" style="color:red";>&#xe872</a></td>
+    </tr>
+    {% empty %}
+    <p>No Messages Receieved</p>
+    {% endfor %}
+   </tbody>
+    
+</table>
+
+<div class ="newbutton">
+
+
+{% endblock %}

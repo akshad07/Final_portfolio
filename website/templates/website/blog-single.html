@@ -1,0 +1,103 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'website/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'website/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'website/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'website/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'website/assets/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div class="hero hero-single route bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">Blog Details</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <center><main id="main">
+
+    <!-- ======= Blog Single Section ======= -->
+    <section class="blog-wrapper sect-pt4" id="blog">
+      <div class="container">
+        <div class="row">
+          {% block blogs %}
+          <div class="col-md-8">
+            <div class="post-box">
+              <div class="post-thumb">
+                <img src="{% static 'website/assets/img/post-1.jpg' %}" class="img-fluid" alt="">
+              </div>
+              <div class="post-meta">
+                <h1 class="article-title">{{ Blog.title}}</h1>
+                <ul>
+                  <li>
+                    <span class="bi bi-person"></span>
+                    <a href="#">Akshad Pardeshi</a>
+                  </li>
+                 
+                </ul>
+              </div>
+              <div class="article-content">
+                <p>
+                  {{ Blog.content }}
+                </p>
+                
+              </div>
+            </div>
+          {% endblock %} 
+        
+    
+        
+  </main></center><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; Copyright <strong>Akshad Pardeshi</strong></p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'website/assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'website/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'website/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'website/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'website/assets/vendor/typed.js/typed.umd.js' %}"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'website/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

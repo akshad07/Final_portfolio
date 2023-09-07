@@ -1,0 +1,32 @@
+{% extends 'dashboard/base.html' %}
+{% block contacts %}
+
+<span class="heading mt-3">
+    <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    margin-top: 10px;
+    margin-left: 50px;
+    height: 60px;
+    width: fit-content;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: rgb(238, 145, 135);
+    border-radius: 30px;
+    text-align: left;
+    ">
+     You Have Receieved this Messages form "{{ object.name }}  : "
+    </h3>
+  </span>
+  <div class="container mt-4" style="background-color: antiquewhite;
+    height: fit-content;
+    width: fit-content;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    margin-left: 100px;">
+    <p style="font-size: 20px;"> {{ message.message }}</p> 
+</div>
+
+{% endblock %}
