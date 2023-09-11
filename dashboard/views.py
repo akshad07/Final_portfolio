@@ -1,12 +1,17 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404,redirect
+
 from website.models import Contact,Blogs
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib import messages
 from dashboard.forms import BlogForm
-from django.contrib.auth.forms import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+
+
 
 class DashboardView (generic.ListView):
     model = Contact
@@ -27,7 +32,8 @@ class deletemsg(generic.DeleteView):
     success_url="/dashboard"
 
 
-class BlogView (generic.ListView):
+class BlogView (generic.ListView, LoginRequiredMixin):
+    login_url = 'website:loginpage'
     model = Blogs
     template_name = "dashboard/blogs.html"
     context_object_name = 'Blogs'
@@ -57,6 +63,7 @@ def add_blog(request):
             q.Status= form.cleaned_data["status"]
             q.save()
             form = BlogForm()
+            messages.success(request, ('Your blog is added successfully'))
             
 
 
@@ -76,5 +83,6 @@ class updateblog(generic.UpdateView):
      model=Blogs
      template_name = "dashboard/Blogadd.html"
      success_url="/"
-     fields = "__all__"
+     fields = ['title', 'category','content']
 
+     
